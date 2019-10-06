@@ -1,6 +1,7 @@
 from TwitterSearch import *
 import pandas as pd
 
+# get tweets data with Keywords
 def getKeywords(player_list,team_list,data):
     for i in range(len(player_list)):
         tso = TwitterSearchOrder()  # create a TwitterSearchOrder object
@@ -13,7 +14,7 @@ def getKeywords(player_list,team_list,data):
             access_token='1177214448844587009-NS7vOJ8wUCBxPCVR2AaQbKFUVTudvu',
             access_token_secret='vFFvBAQB2FnAmtoYMoHAXtWTuTByK5KqKpUmrjrtyb7IG'
         )
-        # tso.set_include_entities(False)
+        # start asking Twitter about the keywords
         for tweet in ts.search_tweets_iterable(tso):
             data.append(
                 [tweet['created_at'], [player_list[i],team_list[i]],tweet['entities']['hashtags'],tweet['text'],tweet['entities']['user_mentions'],tweet['retweet_count'],
@@ -22,9 +23,9 @@ def getKeywords(player_list,team_list,data):
 
 if __name__ == '__main__':
     try:
-        # tuo = TwitterUserOrder('NeinQuarterly') # create a TwitterUserOrder
-
+        # player keywords
         player_list = ['Antetokounmpo', 'Harden', 'Westbrook', 'Curry', 'Durant', 'James','Rose','James','Bryant']
+        # team keywords
         team_list = ['Bucks', 'Rockets', 'Thunder', 'Warriors', 'Thunder', 'Heat','Bulls','Cavaliers','Lakers']
         data = []
         getKeywords(player_list,team_list,data)

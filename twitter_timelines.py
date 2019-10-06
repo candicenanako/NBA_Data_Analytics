@@ -1,7 +1,7 @@
 from TwitterSearch import *
 import pandas as pd
 
-
+# get tweets data of one user's timelines with his username
 def getTimelines(list,data,type):
     for name in list:
         tuo = TwitterUserOrder(name) # create a TwitterUserOrder
@@ -22,7 +22,9 @@ def getTimelines(list,data,type):
 
 if __name__ == '__main__':
     try:
+        # player name
         player_list=['Giannis_An34','JHarden13','russwest44','StephenCurry30','KDTrey5','KingJames','drose','kobebryant']
+        # team name
         team_list=['Bucks','HoustonRockets','okcthunder','warriors','okcthunder','MiamiHEAT','chicagobulls','cavs','Lakers']
         data=[]
         getTimelines(player_list,data,'player')

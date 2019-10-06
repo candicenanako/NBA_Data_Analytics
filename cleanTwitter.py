@@ -1,5 +1,6 @@
 import pandas as pd
 
+# get columns of .csv file
 def getColumns(input_file):
     with open(input_file, "r",encoding='utf-8') as dataFile:
         line = dataFile.readline()
@@ -15,6 +16,7 @@ def printUniqueCount(dataFrame,columns):
 if __name__ == '__main__':
     files=['tweets_timelines.csv','tweets_keywords.csv']
     for file in files:
+        # read csv file
         myData = pd.read_csv(file, sep=',', encoding='utf-8')
         print(myData)
         col=getColumns(file)[1:]
@@ -25,6 +27,7 @@ if __name__ == '__main__':
             valueCounts = myData[c].value_counts()
             empty= myData[myData[c] == None]
             print(valueCounts)
+            # print rate of None value
             print(len(empty) / len(myData))
 
 
