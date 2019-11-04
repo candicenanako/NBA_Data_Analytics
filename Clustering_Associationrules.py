@@ -13,7 +13,6 @@ from sklearn.decomposition import PCA
 
 
 # Clustering
-
 def plot(label, component_number, X_scaled, title, calculate_silhouette=False):
     print("clustering components:", component_number)
     if calculate_silhouette:
